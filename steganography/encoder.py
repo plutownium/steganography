@@ -21,10 +21,10 @@ def embed_text_in_image(im, text):
         r = int(bin(r)[2:-2] + text[i:i+2],2)
         g = int(bin(g)[2:-2] + text[i+2:i+4],2)
         im.putpixel((x,y),(r,g,b))
-        y+=1
-        if(y>=width):
-            x+=1
-            y=0
+        x+=1
+        if(x>=width):
+            y+=1
+            x=0
     return im
 
 

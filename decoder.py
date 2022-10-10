@@ -3,20 +3,18 @@ import sys
 
 def get_embedded_string_binary(im: Image, n: int):
     width, height = im.size 
-    print(width, height)
     binary_string = []
     if(n<=0):
-        for y in range(height):
-            for x in range(width):
-                # print(x,y)
+        for x in range(height):
+            for y in range(width):
                 r,g,_ = im.getpixel((x,y))
                 binary_string.append(bin(r)[-2:])
                 binary_string.append(bin(g)[-2:])
     else:
         count = 0
         n *= 8
-        for y in range(height):
-            for x in range(width):
+        for x in range(height):
+            for y in range(width):
                 r,g,_ = im.getpixel((x,y))
                 binary_string.append(bin(r)[-2:])
                 binary_string.append(bin(g)[-2:])
@@ -36,6 +34,10 @@ def binary_to_ascii(binary_string):
             ascii_string.append(chr(int(temp,2)))
 
     return "".join(ascii_string)
+
+
+
+
 
 
 def main():
